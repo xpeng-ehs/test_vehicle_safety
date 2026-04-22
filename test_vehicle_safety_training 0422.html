@@ -967,7 +967,7 @@
       // 计算滑动速度：绝对距离 / 时间差
       const speed = Math.abs(distance) / timeDiff;
 
-      // 【核心修改点】：滑动速度 > 2.4 px/ms，要求非常快的“飞滑”才会呼出
+      // 【核心修改点】：滑动速度 > 3.2 px/ms，要求非常快的“飞滑”才会呼出
       if (speed > 2.4 && currentScrollTop > 200) {
         mobileToc.classList.add('show');
         
