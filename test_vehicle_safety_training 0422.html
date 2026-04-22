@@ -190,7 +190,6 @@
   .doc-meta { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 20px; padding: 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 20px; font-size: 13px; box-shadow: var(--shadow-sm); width: 100%; -webkit-overflow-scrolling: touch; }
   .doc-meta-item { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; min-width: 110px; }
   .doc-meta-label { font-size: 11px; color: var(--text-muted); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
-  /* 修复制度编号超长换行问题，保持一行不断行 */
   .doc-meta-value { color: var(--text-primary); font-weight: 700; font-size: 14px; white-space: nowrap; }
 
   h3 { font-size: 16px; font-weight: 900; margin: 32px 0 12px; color: var(--text-primary); }
@@ -242,27 +241,48 @@
     .section { margin-bottom: 40px; scroll-margin-top: 90px; }
     
     /* 3. 字体与网格紧凑化 */
-    /* 取消强制不断行，使极长标题在手机屏幕优雅自适应折行 */
     .hero-h1 { font-size: 26px; font-size: clamp(22px, 6vw, 30px); }
     .card-grid.col2, .card-grid.col3 { grid-template-columns: 1fr; gap: 12px; }
     .card { padding: 16px; }
     .card-icon { font-size: 20px; }
     
     /* 4. 短字句精准防换行控制 */
-    th, td:first-child, .dsm-action, .kv-key {
+    th, .dsm-action, .kv-key {
       white-space: nowrap; 
       word-break: keep-all;
     }
     
-    /* 5. 动态表格阻尼防拥挤 */
-    .table-wrap { margin: 12px 0; border-radius: 8px; }
-    table { min-width: max-content; } /* 让短文本自动撑开列宽，通过外层自由滑动 */
-    th, td { padding: 10px 12px; font-size: 13px; }
+    /* 5. 动态表格自适应换行 (修复解释列溢出/需横拉的问题) */
+    .table-wrap { margin: 12px 0; border-radius: 8px; width: 100%; overflow-x: hidden; }
+    table { min-width: 100%; width: 100%; table-layout: auto; }
+    th, td { padding: 10px 12px; font-size: 13px; line-height: 1.6; }
+    td:first-child { white-space: nowrap; font-size: 13px; }
+    /* 第二列强制允许换行且字体字号保持绝对一致 */
+    td:not(:first-child) { white-space: normal; word-break: break-word; font-size: 13px; }
+
+    /* 6. 角色职责 2x2 宫格排版 */
+    .role-tabs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding-bottom: 0;
+    }
+    .role-tab {
+      width: 100%;
+      padding: 10px 8px;
+      font-size: 13px;
+      white-space: normal; /* 允许名称太长时在按钮内换行 */
+      text-align: center;
+      line-height: 1.3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     .dsm-row { grid-template-columns: 1fr; gap: 8px; padding: 14px; }
     .dsm-action { text-align: left; margin-top: 4px; }
 
-    /* 6. 右侧专属智能悬浮胶囊导航 (快滑呼出) */
+    /* 7. 右侧专属智能悬浮胶囊导航 (降敏版快滑呼出) */
     .mobile-toc {
       display: flex;
       flex-direction: column;
@@ -947,8 +967,8 @@
       // 计算滑动速度：绝对距离 / 时间差
       const speed = Math.abs(distance) / timeDiff;
 
-      // 如果滑动速度很快 (> 1.2 px/ms)，且不在页面最顶部
-      if (speed > 1.2 && currentScrollTop > 200) {
+      // 【核心修改点】：滑动速度 > 2.4 px/ms，要求非常快的“飞滑”才会呼出
+      if (speed > 2.4 && currentScrollTop > 200) {
         mobileToc.classList.add('show');
         
         // 重置隐藏定时器
