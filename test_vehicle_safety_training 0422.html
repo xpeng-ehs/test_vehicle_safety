@@ -346,13 +346,13 @@
 <div class="hero">
   <div class="hero-grid-lines"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">XIAOPENG MOTORS · 质量与安全中心 · EHS 安全培训</div>
-    <h1 class="hero-h1">《试验样车驾驶与操作<span>安全管理程序》宣贯</span></h1>
+    <div class="hero-eyebrow">小鹏 · 质量与安全中心 · EHS 安全培训</div>
+    <h1 class="hero-h1">《试验样车驾驶与操作安全管理程序》<span>重点内容宣贯</span></h1>
     <p class="hero-sub">适用于：广州小鹏汽车科技有限公司及其关联公司全体内部测试人员、外聘驾驶员及外部参与人员 | 编号 XP1.10000135.1002</p>
     <div class="hero-chips">
       <span class="chip" onclick="document.getElementById('s-zero-tolerance').scrollIntoView();">🚫 零容忍红线</span>
       <span class="chip" onclick="document.getElementById('s-accident').scrollIntoView();">🚨 事故报告与表单</span>
-      <span class="chip" onclick="document.getElementById('s-battery').scrollIntoView();">🔋 电池安全</span>
+      <span class="chip" onclick="document.getElementById('s-lowspeed').scrollIntoView();">⚠️ 重点场景</span>
       <span class="chip" onclick="document.getElementById('s-external').scrollIntoView();">🤝 外部人员管理</span>
     </div>
   </div>
@@ -458,8 +458,8 @@
 
       <div class="alert danger">
         <span class="alert-icon">🚫</span>
-        <div class="alert-text"><strong>以下行为实行"零容忍"，一经核实将严肃处理。严禁因项目节点紧张而省略安全步骤或贸然作业。</strong>所有开放道路测试必须取得临时行驶车牌，自动驾驶必须取得测试通知书/牌照。<br>
-        <a href="https://xiaopeng.feishu.cn/docx/Sj1HdjfizoHwflxEHAacEU1mnnd" target="_blank" class="link-card">查阅：典型事故违规案例库</a>
+        <div class="alert-text"><strong>以下行为实行"零容忍"，一经核实将严肃处理。严禁因项目节点紧张而省略安全步骤或贸然作业。</strong>。<br>
+        <a href="https://xiaopeng.feishu.cn/docx/Sj1HdjfizoHwflxEHAacEU1mnnd" target="_blank" class="link-card">查阅：典型事故违规案例参考</a>
         </div>
       </div>
 
@@ -478,7 +478,7 @@
         </div>
         <div class="card danger">
           <div class="card-head"><span class="card-icon">🤐</span><div class="card-title">瞒报/漏报事故</div></div>
-          <div class="card-body">事故 30 分钟内必须口头报告，24 小时内完成系统登记。漏报直接关联绩效考核。</div>
+          <div class="card-body">事故 30 分钟内必须口头或飞书报告，24 小时内完成系统登记。漏报直接关联绩效考核。</div>
         </div>
       </div>
     </section>
@@ -493,7 +493,7 @@
         <div class="role-tab active" onclick="switchRole('dept',this)">🏢 试验样车使用部门</div>
         <div class="role-tab" onclick="switchRole('test-center',this)">⚙️ 测试中心</div>
         <div class="role-tab" onclick="switchRole('dev',this)">💻 开发部门(软硬件)</div>
-        <div class="role-tab" onclick="switchRole('qsc',this)">🛡️ 质量与安全中心</div>
+        <div class="role-tab" onclick="switchRole('qsc',this)">🛡️ 质量与安全中心安全管理组</div>
       </div>
 
       <div class="role-panel show" id="role-dept">
@@ -590,7 +590,7 @@
     <section class="section" id="s-qualification">
       <div class="section-header">
         <span class="section-num">04</span>
-        <h2 class="section-title">人员资质与疲劳管理</h2>
+        <h2 class="section-title">人员资质与疲劳驾驶管理</h2>
       </div>
 
       <div class="table-wrap">
@@ -598,16 +598,16 @@
           <thead><tr><th>人员类型</th><th>资质与培训要求</th></tr></thead>
           <tbody>
             <tr>
-              <td><strong>内部驾驶员</strong></td>
+              <td><strong>驾驶员</strong></td>
               <td>有效驾照 + 公司内部资质认证。<br><span style="color:var(--accent-red);font-weight:700">（注意：未持 内部B 级及以上驾照严禁坐于主驾位操作）</span></td>
             </tr>
             <tr>
               <td><strong>高风险测试人员</strong></td>
-              <td>通用资质 + 针对车辆失控（突发异常转向/加速/制动失效）的<strong>专项应急处置培训</strong> + 封闭场地实操考核合格。</td>
+              <td>通用资质 + 针对车辆失控（突发异常转向/加速/制动失效）的<strong>专项应急处置能力</strong> 。</td>
             </tr>
             <tr>
-              <td><strong>外部人员/客户</strong></td>
-              <td>活动前完成专项强制培训 + 签署《安全告知及同意书》。必须由公司员工全程监护。</td>
+              <td><strong>外部体验人员/客户</strong></td>
+              <td>活动前完成专项培训 + 签署《安全告知及同意书》。必须由公司员工监护及风险提醒。</td>
             </tr>
           </tbody>
         </table>
@@ -686,14 +686,14 @@
     <section class="section" id="s-highspeed">
       <div class="section-header">
         <span class="section-num">07</span>
-        <h2 class="section-title">高级别测试管控（高速/智驾/高风险）</h2>
+        <h2 class="section-title">高级别动态测试管控（高速/智驾/高风险）</h2>
       </div>
 
       <div class="card-grid col2">
         <div class="card warn">
           <div class="card-head"><span class="card-icon">🏎</span><div class="card-title">极限性能与超速管控</div></div>
           <div class="card-body">
-            严禁凭经验盲目操作。高速极限性能测试必须在专用场地，<strong>遵循从低到高风险递进实施</strong>。超速 &gt;140km/h 超过 3 秒即触发后台告警并纳入通报。
+            严禁凭经验盲目操作。高速极限性能测试必须在专用场地，<strong>遵循从低到高风险递进实施，必要时需要进行接管要求可视化</strong>。超速 &gt;140km/h 超过 3 秒即触发后台告警并纳入通报。
           </div>
         </div>
         <div class="card danger">
