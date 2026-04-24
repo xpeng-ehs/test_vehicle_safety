@@ -1075,7 +1075,7 @@
       const distance = currentScrollTop - lastScrollTop;
       const speed = Math.abs(distance) / timeDiff;
 
-      if (speed > 2.4 && currentScrollTop > 200) {
+      if (speed > 3.5 && currentScrollTop > 400) {
         mobileToc.classList.add('show');
         clearTimeout(hideTocTimeout);
         hideTocTimeout = setTimeout(() => {
